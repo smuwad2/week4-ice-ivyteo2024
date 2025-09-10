@@ -22,11 +22,41 @@
                 // Invalid age: Age must be between 10 and 40.
                 // Invalid email: Email must contain the character @.
                 // Empty password: Password must be non-empty.
-                var errorMessages="";
-                
-                
+
+                var errorMessages=""; // global scope 
+
+                //local scope /function scope cannot access outside the function
+                let x = document.forms[formName];
+                const id = x['id'].value;
+                //const means not going modify the value of the var
+                const ageval = x['age'].value;
+                const emailval = x['email'].value;
+                const passwordval = x['password'].value;
+
+                if(id.length >10){
+                    errorMessages += "Id value cannot be more than 10 characters.\n";
+            
+                }
+
+                if (ageval <10 || ageval >40){
+                    errorMessages +="Age must be between 10 and 40.\n";
+                }
+
+                if ( emailval.indexOf("@") ==-1){
+                    errorMessages +="Email must contain the character @.\n";
+                }
+
+                if(passwordval.trim().length ==0 ){
+                    errorMessages +="Password must be non-empty.\n";
+                }
             }
-     
+
+            if (errorMessages.length !=0){
+                alert(errorMessages);
+                return false; //stop the forms from submitting
+            }
+            
+            return true;
          </script>
 </body>
 </html>
