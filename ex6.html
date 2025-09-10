@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
     <h1>Shopping List</h1>
@@ -19,19 +20,33 @@
     <script>
         // add code here
         const selected = document.getElementById("select_item");
-        selected.addEventListener("change",add);
-        function add(){
+        selected.addEventListener("change", add);
+        function add() {
             var ulelem = document.getElementById("shopList");
             var liElem = document.createElement("li")
             liElem.innerText = selected.value;
             ulelem.appendChild(liElem);
         }
-        
-        
-        
+
+        //or using arrow function
+        /* the e is the event : contains information about what just happen
+        e.target == the element that was click
+        selected.addEventListener("change", e => {
+        const ulelem = document.getElementById("shopList");
+        const liElem = document.createElement("li");
+        liElem.innerText = e.target.value; // same as selected.value
+        ulelem.appendChild(liElem);
+            });
+
+
+
+        */
+
+
     </script>
 
-    
 
-    </body>
+
+</body>
+
 </html>
